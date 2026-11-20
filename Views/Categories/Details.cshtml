@@ -1,0 +1,29 @@
+@model NguyenDucThang_Day6.Models.Category
+
+@{
+    ViewData["Title"] = "Chi tiết danh mục";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card card-modern p-4">
+            <div class="border-bottom pb-3 mb-4">
+                <h4 class="fw-bold text-info mb-1"><i class="bi bi-info-circle-fill me-2"></i>Chi tiết danh mục</h4>
+            </div>
+            <dl class="row mb-4">
+                <dt class="col-sm-4 text-muted">Mã ID</dt>
+                <dd class="col-sm-8 fw-bold">#@Model.Id</dd>
+                <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(model => model.Name)</dt>
+                <dd class="col-sm-8 fw-semibold">@Html.DisplayFor(model => model.Name)</dd>
+            </dl>
+            <div class="d-flex justify-content-between">
+                <a asp-action="Index" class="btn btn-light border px-4">
+                    <i class="bi bi-arrow-left me-1"></i> Quay lại
+                </a>
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning px-4 fw-semibold">
+                    <i class="bi bi-pencil-square me-1"></i> Sửa
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

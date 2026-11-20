@@ -1,0 +1,43 @@
+@model NguyenDucThang_Day6.Models.Book
+
+@{
+    ViewData["Title"] = "Chi tiết sách";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-7 col-lg-6">
+        <div class="card card-modern p-4">
+            <div class="border-bottom pb-3 mb-4">
+                <h4 class="fw-bold text-info mb-1"><i class="bi bi-info-circle-fill me-2"></i>Chi tiết thông tin sách</h4>
+            </div>
+            <dl class="row mb-4">
+                <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(model => model.Title)</dt>
+                <dd class="col-sm-8 fw-bold">@Html.DisplayFor(model => model.Title)</dd>
+
+                <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(model => model.Author)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Author)</dd>
+
+                <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(model => model.PublishDate)</dt>
+                <dd class="col-sm-8">@Model.PublishDate.ToString("dd/MM/yyyy")</dd>
+
+                <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(model => model.PageCount)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.PageCount) trang</dd>
+
+                <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(model => model.Category)</dt>
+                <dd class="col-sm-8">
+                    <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-3 py-1">
+                        @Html.DisplayFor(model => model.Category.Name)
+                    </span>
+                </dd>
+            </dl>
+            <div class="d-flex justify-content-between">
+                <a asp-action="Index" class="btn btn-light border px-4">
+                    <i class="bi bi-arrow-left me-1"></i> Quay lại
+                </a>
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning px-4 fw-semibold">
+                    <i class="bi bi-pencil-square me-1"></i> Sửa
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

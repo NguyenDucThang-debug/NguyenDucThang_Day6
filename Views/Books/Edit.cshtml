@@ -1,0 +1,69 @@
+@model NguyenDucThang_Day6.Models.Book
+
+@{
+    ViewData["Title"] = "Chỉnh sửa thông tin sách";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-7 col-lg-6">
+        <div class="card card-modern p-4">
+            <div class="border-bottom pb-3 mb-4">
+                <h4 class="fw-bold text-warning mb-1"><i class="bi bi-pencil-square me-2"></i>Chỉnh sửa thông tin sách</h4>
+                <p class="text-muted small mb-0">Cập nhật thông tin chi tiết của cuốn sách</p>
+            </div>
+
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label fw-semibold"></label>
+                    <input asp-for="Title" class="form-control form-control-lg" />
+                    <span asp-validation-for="Title" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Author" class="form-label fw-semibold"></label>
+                    <input asp-for="Author" class="form-control" />
+                    <span asp-validation-for="Author" class="text-danger small"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="PublishDate" class="form-label fw-semibold"></label>
+                        <input asp-for="PublishDate" class="form-control" />
+                        <span asp-validation-for="PublishDate" class="text-danger small"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="PageCount" class="form-label fw-semibold"></label>
+                        <div class="input-group">
+                            <input asp-for="PageCount" class="form-control" />
+                            <span class="input-group-text">trang</span>
+                        </div>
+                        <span asp-validation-for="PageCount" class="text-danger small"></span>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="CategoryId" class="form-label fw-semibold"></label>
+                    <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.CategoryId"></select>
+                    <span asp-validation-for="CategoryId" class="text-danger small"></span>
+                </div>
+
+                <div class="d-flex justify-content-between pt-2">
+                    <a asp-action="Index" class="btn btn-light border px-4">
+                        <i class="bi bi-arrow-left me-1"></i> Quay lại
+                    </a>
+                    <button type="submit" class="btn btn-warning px-4 shadow-sm fw-semibold">
+                        <i class="bi bi-save me-1"></i> Cập nhật
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
